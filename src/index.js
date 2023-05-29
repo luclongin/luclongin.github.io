@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import AdminPage from './components/adminPage/adminPage.component';
 import reportWebVitals from './reportWebVitals';
+import { HashRouter } from 'react-router-dom';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -56,13 +57,21 @@ const router = createBrowserRouter([
 ]);
 
 
+
+const newRouter = createHashRouter([
+  {
+    path: "/*",
+    element: <App />,
+  }
+]);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  //<React.StrictMode>
+  <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <RouterProvider router={newRouter} />
     </Provider>
-  //</React.StrictMode>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
