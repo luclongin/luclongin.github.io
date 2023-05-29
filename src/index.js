@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import AdminPage from './components/adminPage/adminPage.component';
 import reportWebVitals from './reportWebVitals';
-import { HashRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -60,8 +60,37 @@ const router = createBrowserRouter([
 
 const newRouter = createHashRouter([
   {
-    path: "/*",
+    path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/kat",
+    element: <AdminPage />,
+  },
+  // normal photobox order bought with tarjeta
+  {
+    path: "/gracias",
+    element: <OrderFeedbackCard />,
+  },
+  // normal photobox order bought with yape
+  {
+    path: "/yape",
+    element: <OrderFeedbackYape />
+  },
+  // gift card bought with card
+  {
+    path: "/giftcard",
+    element: <DisplayGiftCard />
+  },
+  // gift card bought with yape
+  {
+    path: "/yape/giftcard",
+    element: <GiftCardFeedbackYape />
+  },
+  {
+    path: "/pedido",
+    element: <Order />
   }
 ]);
 
